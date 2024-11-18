@@ -65,7 +65,7 @@ function ProductForm(props : ProductFormPropType) {
         </label>
         <label className="flex flex-col gap-1">
             <span className="font-bold text-sm">Kích cỡ sản phẩm</span>
-            <input defaultValue={defaultProduct?.size} {...register("size", { required: true })} className="border border-black shadow border-opacity-20 rounded p-2" placeholder="Nhập tên sản phẩm" type="text" name="position"/>
+            <input defaultValue={defaultProduct?.size} {...register("size", { required: true })} className="border border-black shadow border-opacity-20 rounded p-2" placeholder="Nhập tên sản phẩm" type="text" name="size"/>
         </label>
         <div className="w-full flex items-center justify-center">
             <input className="text-white w-full hover:cursor-pointer bg-[#22744C] px-4 py-2 rounded uppercase text-sm mt-4" type="submit" value={submitTitle}/>
