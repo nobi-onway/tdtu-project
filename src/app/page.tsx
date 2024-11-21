@@ -1,9 +1,9 @@
-import Welcome from "@/components/Welcome";
+import RoleSelection from "@/components/RoleSelection";
 
 export default function Home() {
   return (
-    <section className="flex items-center justify-center h-dvh">
-        <Welcome/>
-    </section>
+    <main className="flex justify-center items-center">
+      <RoleSelection/>
+    </main>
   );
 }

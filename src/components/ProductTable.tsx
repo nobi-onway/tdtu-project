@@ -60,14 +60,14 @@ function ProductTable( { products } : { products : ProductType[] }) {
             }} isOpen={openDeleteConfirmModal} onCancel={() => setDeleteConfirmModal(false)}/>
             <div className="w-full grid grid-cols-[0.05fr_0.3fr_0.15fr_0.15fr_0.12fr_0.2fr]">
                 {tableColHeader.map((header, index) => 
-                    <div className="border-b border-b-black py-4 font-semibold" key={index}>
+                    <div className="border-b text-2xl border-b-black py-4 font-semibold" key={index}>
                         {header}
                     </div>
                 )}
-                {products.flatMap(product => Object.values({id: product.id, name: product.name, price: FormatVNCurrency(product.price), size: product.size, image: <RenderImage url={product.image} />, action: <RenderAction handleUpdate={() => handleUpdateProduct(product)} handleDelete={() => handleDeleteProduct(product)}/>})).map((value, index) => 
+                {products.flatMap((product, index) => Object.values({id: index + 1, name: product.name, price: FormatVNCurrency(product.price), size: product.size, image: <RenderImage url={product.image} />, action: <RenderAction handleUpdate={() => handleUpdateProduct(product)} handleDelete={() => handleDeleteProduct(product)}/>})).map((value, index) => 
                   { 
                     return (
-                        <div className="border-b border-b-black py-6 font-semibold relative" key={index}>
+                        <div className="border-b text-xl border-b-black py-6 font-semibold relative" key={index}>
                             {value}
                         </div>
                     )

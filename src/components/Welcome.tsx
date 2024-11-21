@@ -15,8 +15,8 @@ function Welcome() {
                 </div>
             </div>
             <div className="flex flex-col gap-2">
-                <Link href={'/products'} className="rounded py-2 px-4  bg-primary_color text-xl text-white">Xem kho hàng</Link>
-                <Link href={'/products/create'} className="rounded py-2 px-4 bg-secondary_color text-xl text-white">Đăng sản phẩm</Link>
+                <Link href={'/admin/products'} className="rounded py-2 px-4  bg-primary_color text-xl text-white">Xem kho hàng</Link>
+                <Link href={'/admin/products/create'} className="rounded py-2 px-4 bg-secondary_color text-xl text-white">Đăng sản phẩm</Link>
             </div>
         </div>
     );
