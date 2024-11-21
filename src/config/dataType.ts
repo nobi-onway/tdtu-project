@@ -5,3 +5,10 @@ export type ProductType = {
     size: string,
     image: string,
 }
+
+export type ProductCartType = {
+    id: string,
+    quantity: number,
+}
+
+export type ProductCartTableType = ProductCartType & ProductType

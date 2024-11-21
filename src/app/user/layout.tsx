@@ -1,13 +1,13 @@
+import CartHeader from "@/components/CartHeader";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 const links = [
     {
-        href: '/user',
-        title: 'Trang chủ',
+        title: <Link href='/user'>Trang chủ</Link>,
     },
     {
-        href: '/user/cart',
-        title: 'Giỏ hàng',
+        title: <CartHeader/>,
     },
 ]
 

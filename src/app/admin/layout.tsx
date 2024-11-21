@@ -1,17 +1,15 @@
 import Header from "@/components/Header";
+import Link from "next/link";
 
 const links = [
     {
-        href: '/admin',
-        title: 'Trang chủ',
+        title: <Link href='/admin'>Trang chủ</Link>,
     },
     {
-        href: '/admin/products',
-        title: 'Kho hàng',
+        title: <Link href='/admin/products'>Kho hàng</Link>,
     },
     {
-        href: '/admin/orders',
-        title: 'Đơn hàng',
+        title: <Link href='/admin/orders'>Đơn hàng</Link>,
     }
 ]
 

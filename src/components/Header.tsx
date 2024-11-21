@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type LinkType = {
-    href: string,
-    title: string,
+    title: React.ReactNode,
 }
 
 function Header({links} : {links: LinkType[]}) {
@@ -16,10 +15,10 @@ function Header({links} : {links: LinkType[]}) {
             <ul className="flex items-center gap-8 font-semibold">
                 {links.map((link, index) => 
                 {
-                    const { href, title } = link;
+                    const { title } = link;
                     return (
                         <li className="text-secondary_color text-xl" key={index}>
-                            <Link href={href}>{title}</Link>
+                            {title}
                         </li>
                     )
                 })}

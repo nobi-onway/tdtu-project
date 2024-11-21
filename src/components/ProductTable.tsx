@@ -37,7 +37,7 @@ function RenderAction(props : RenderActionPropType)
 function ProductTable( { products } : { products : ProductType[] }) {
     const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false)
     const [openDeleteConfirmModal, setDeleteConfirmModal] = useState<boolean>(false)
-    const [selectedProduct, setSelectedProduct] = useState<ProductType>()
+    const [selectedProduct, setSelectedProduct] = useState<ProductType | undefined>(undefined)
     const { mutate } = useDelete(productApi)
 
     const handleDeleteProduct = (product : ProductType) => {
@@ -56,6 +56,7 @@ function ProductTable( { products } : { products : ProductType[] }) {
             <DeleteConfirmModal onConfirm={() => {
                 if(!selectedProduct) return;
                 mutate(selectedProduct.id)
+                setSelectedProduct(undefined)
                 setDeleteConfirmModal(false)
             }} isOpen={openDeleteConfirmModal} onCancel={() => setDeleteConfirmModal(false)}/>
             <div className="w-full grid grid-cols-[0.05fr_0.3fr_0.15fr_0.15fr_0.12fr_0.2fr]">

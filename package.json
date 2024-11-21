@@ -11,12 +11,14 @@
   "dependencies": {
     "@tanstack/react-query": "^5.59.20",
     "axios": "^1.7.7",
+    "immer": "^10.1.1",
     "lucide-react": "^0.456.0",
     "next": "15.0.3",
     "react": "18",
     "react-dom": "18",
     "react-hook-form": "^7.53.2",
-    "tdtu-project": "file:"
+    "tdtu-project": "file:",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
