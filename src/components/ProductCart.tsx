@@ -21,7 +21,7 @@ function ProductCart(props : ProductCartPropsType) {
                 <span className="text-lg">{FormatVNCurrency(price)}</span> 
             </div>
             <div className="flex items-center justify-center mt-2">
-                <button className="p-2 bg-primary_color text-white w-fit rounded flex gap-2">
+                <button className="p-2 bg-primary_color text-white w-fit rounded flex gap-2 hover:bg-secondary_color hover:scale-110 transition-all">
                     <ShoppingCart/>
                     Thêm vào giỏ hàng
                 </button>
