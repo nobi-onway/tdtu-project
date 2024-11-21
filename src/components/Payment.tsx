@@ -14,6 +14,7 @@ function Payment() {
 
     const handlePayment = (data : AccountType) => {
         clear();
+        localStorage.setItem('total-payment', "0")
         push('/user/checkout/success')
     }
 
