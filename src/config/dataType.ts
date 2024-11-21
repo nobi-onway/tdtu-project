@@ -12,3 +12,8 @@ export type ProductCartType = {
 }
 
 export type ProductCartTableType = ProductCartType & ProductType
+
+export type AccountType = {
+    username: string,
+    password: string,
+}

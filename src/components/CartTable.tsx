@@ -45,6 +45,8 @@ function CartTable({data} : {data : ProductType[]}) {
         return { ...product, quantity: item.quantity }
     })
 
+    const total = products.reduce((total, cur) => total + cur.price * cur.quantity, 0)
+
     const handleDeleteProduct = (id : string) => {
         setProductId(id)
         setOpenDeleteConfirmModal(true)
@@ -75,8 +77,8 @@ function CartTable({data} : {data : ProductType[]}) {
                 )}
             </div>
             <div className="flex flex-col items-end justify-end">
-                <h1 className="text-4xl font-bold text-primary_color my-4">Tổng tiền: {FormatVNCurrency(products.reduce((total, cur) => total + cur.price * cur.quantity, 0))}</h1>
-                <Link href='/user/checkout' className="uppercase border bg-slate-600 text-white p-2 rounded text-2xl">Đặt hàng</Link>
+                <h1 className="text-4xl font-bold text-primary_color my-4">Tổng tiền: {FormatVNCurrency(total)}</h1>
+                <Link onClickCapture={() => localStorage.setItem('total-payment', total.toString())} href='/user/checkout' className="uppercase border bg-slate-600 text-white p-2 rounded text-2xl">Đặt hàng</Link>
             </div>
         </section>
     )

@@ -8,6 +8,7 @@ type CartStoreStateType = {
     remove: (id : string) => void,
     incByOne: (id : string) => void,
     descByOne: (id : string) => void,
+    clear: () => void,
 }
 
 const useCartStore = create<CartStoreStateType>((set) => ({
@@ -49,6 +50,14 @@ const useCartStore = create<CartStoreStateType>((set) => ({
             return ({ selectedProducts: newProducts})
         }
     ),
+    clear: () => set(
+        (state : CartStoreStateType) => 
+        {
+            localStorage.setItem('purchase-products', JSON.stringify([]))
+
+            return ({selectedProducts: []})
+        }
+    )
 }))
 
 export default useCartStore;

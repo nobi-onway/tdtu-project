@@ -1,44 +1,6 @@
 import { ProductType } from "@/config/dataType";
 import { useForm } from "react-hook-form";
 
-const data = [
-    {
-    "image": "https://gongcha.com.vn/wp-content/uploads/2018/10/kem-tc.png",
-    "name": "Milk Tea Ice-crem with Pearl",
-    "price": 62000,
-    "size": "M",
-    "id": "1"
-  },
-  {
-    "image": "https://gongcha.com.vn/wp-content/uploads/2021/03/ALISAN-TRA%CC%81I-CA%CC%82Y.png",
-    "name": "Trà Alisan Trái Cây",
-    "price": 68000,
-    "size": "L",
-    "id": "2"
-  },
-  {
-    "image": "https://gongcha.com.vn/wp-content/uploads/2018/02/Oolong-v%E1%BA%A3i-2.png",
-    "name": "Lychee Oolong Tea",
-    "price": 87000,
-    "size": "L",
-    "id": "3"
-  },
-  {
-    "image": "	https://gongcha.com.vn/wp-content/uploads/2019/11/Okinawa-Milk-Foam-Smoothie.png",
-    "name": "Okinawa Oreo Cream Milk Tea",
-    "price": 69000,
-    "size": "L",
-    "id": "4"
-  },
-  {
-    "image": "https://gongcha.com.vn/wp-content/uploads/2018/08/Strawberry-Earl-grey-latte.png",
-    "name": "Strawberry Earl Grey Latte",
-    "price": 32000,
-    "size": "S",
-    "id": "5"
-  }
-]
-
 type ProductFormPropType = {
     onSubmit: (data : ProductType) => void,
     defaultProduct?: ProductType,
