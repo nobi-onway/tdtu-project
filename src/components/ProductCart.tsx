@@ -4,6 +4,7 @@ import { ShoppingCart } from "lucide-react";
 import { FormatVNCurrency } from "@/helpers/currencyHelper";
 import Image from "next/image";
 import useCartStore from "@/store/useCartStore";
+import { toast } from "react-toastify";
 
 type ProductCartPropsType = {
     product : ProductType,
@@ -14,9 +15,11 @@ function ProductCart(props : ProductCartPropsType) {
     const { add, incByOne, selectedProducts } = useCartStore();
 
     const handleAddToCart = () => {
+        toast.success("Thêm sản phẩm thành công")
+        
         const hasProduct = selectedProducts.find(product => product.id === id);
         if(hasProduct) { incByOne(id); return; }
-
+        
         add({id, quantity: 1})
     }
 
