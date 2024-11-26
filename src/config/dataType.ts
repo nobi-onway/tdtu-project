@@ -11,9 +11,18 @@ export type ProductCartType = {
     quantity: number,
 }
 
-export type ProductCartTableType = ProductCartType & ProductType
+export type ProductPurchasedType = ProductCartType & ProductType
 
 export type AccountType = {
     username: string,
     password: string,
+}
+
+export type OrderType = {
+    id: string,
+    customer: string,
+    products: ProductPurchasedType[],
+    total: number,
+    status: string,
+    createAt: number,
 }

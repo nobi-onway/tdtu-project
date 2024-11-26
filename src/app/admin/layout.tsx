@@ -9,7 +9,7 @@ const links = [
         title: <Link href='/admin/products'>Kho hàng</Link>,
     },
     {
-        title: <Link href='/admin/orders'>Đơn hàng</Link>,
+        title: <Link href='/admin/orders-manager'>Đơn hàng</Link>,
     }
 ]
 

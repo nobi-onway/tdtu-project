@@ -1,6 +1,6 @@
 'use client'
 import { productApi } from "@/config/apiConfig";
-import { ProductCartTableType, ProductCartType, ProductType } from "@/config/dataType";
+import { ProductPurchasedType, ProductCartType, ProductType } from "@/config/dataType";
 import { FormatVNCurrency } from "@/helpers/currencyHelper";
 import withFetchData from "@/hocs/withFetchData";
 import useCartStore from "@/store/useCartStore";
@@ -10,7 +10,7 @@ import DeleteConfirmModal from "./DeleteConfirmModal";
 import { useState } from "react";
 import Link from "next/link";
 
-const tableColHeader = ["Tên sản phẩm", "Hình ảnh", "Số lượng", "Giá", ""]
+const tableColHeader = ["Tên sản phẩm", "Hình ảnh", "Số lượng", "Kích cỡ" ,"Giá", ""]
 
 function RenderImage({url} : {url : string})
 {
@@ -37,7 +37,7 @@ function CartTable({data} : {data : ProductType[]}) {
     const { remove } = useCartStore();
     const purchaseProducts = JSON.parse(localStorage.getItem('purchase-products') ?? "[]");
 
-    const products : ProductCartTableType[] = purchaseProducts.map((item : ProductCartType) => {
+    const products : ProductPurchasedType[] = purchaseProducts.map((item : ProductCartType) => {
         const product = data.find(i => i.id === item.id)
 
         if(!product) return {}
@@ -60,13 +60,13 @@ function CartTable({data} : {data : ProductType[]}) {
                 setProductId(undefined)
                 setOpenDeleteConfirmModal(false)
             }} isOpen={openDeleteConfirmModal} onCancel={() => setOpenDeleteConfirmModal(false)}/>
-            <div className="w-full grid grid-cols-[0.25fr_0.2fr_0.15fr_0.2fr_0.2fr]">
+            <div className="w-full grid grid-cols-[0.25fr_0.2fr_0.15fr_0.1fr_0.1fr_0.2fr]">
                 {tableColHeader.map((header, index) => 
                     <div className="border-b text-2xl border-b-black py-4 font-semibold" key={index}>
                         {header}
                     </div>
                 )}
-                {products.flatMap((product, index) => Object.values({name: product.name, image: <RenderImage url={product.image} />, quantity: product.quantity, price: FormatVNCurrency(product.price * product.quantity), action: <RenderAction handleDelete={() => handleDeleteProduct(product.id)}/>})).map((value, index) => 
+                {products.flatMap((product, index) => Object.values({name: product.name, image: <RenderImage url={product.image} />, quantity: product.quantity, size: product.size, price: FormatVNCurrency(product.price * product.quantity), action: <RenderAction handleDelete={() => handleDeleteProduct(product.id)}/>})).map((value, index) => 
                   { 
                     return (
                         <div className="border-b text-xl border-b-black py-6 font-semibold relative" key={index}>
